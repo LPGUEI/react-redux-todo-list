@@ -1,58 +1,47 @@
-import React from 'react';
-import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
-import './App.css';
+import styled from 'styled-components';
+import { useSelector } from 'react-redux';
 
-function App() {
+import TodoItem from './components/TodoItem';
+import TodoInput from './components/TodoInput';
+import TodoFilter from './components/TodoFilter';
+import TodoCleanDone from './components/TodoCleanDone';
+
+import { selectTodos, selectFilters } from './redux/selectors';
+
+const TodoWrapper = styled.div`
+  margin: 30px auto;
+  text-align: center;
+  padding: 30px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  max-width: 560px;
+  width: 100%;
+`;
+
+const TodoList = styled.div`
+  text-align: center;
+  margin: 0 auto;
+`;
+
+export default function App() {
+  const todos = useSelector(selectTodos);
+  const filters = useSelector(selectFilters);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Counter />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <span>
-          <span>Learn </span>
-          <a
-            className="App-link"
-            href="https://reactjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux-toolkit.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux Toolkit
-          </a>
-          ,<span> and </span>
-          <a
-            className="App-link"
-            href="https://react-redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React Redux
-          </a>
-        </span>
-      </header>
-    </div>
+    <TodoWrapper>
+      <TodoInput />
+      <TodoFilter />
+      <TodoList>
+        {todos
+          .filter((todo) => {
+            if (filters === 'all') return todo;
+            return filters === 'done' ? todo.isDone : !todo.isDone;
+          })
+          .map((todo) => (
+            <TodoItem todo={todo} key={todo.id} />
+          ))}
+      </TodoList>
+      <TodoCleanDone />
+    </TodoWrapper>
   );
 }
-
-export default App;
