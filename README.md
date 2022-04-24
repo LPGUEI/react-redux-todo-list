@@ -1,8 +1,8 @@
-# Introduction
+## [Todo list](https://christy313.github.io/react-redux-todo-list/)
 
-[A todo list](https://christy313.github.io/react-redux-todo-list/) with CRUD made by React + Redux
+A todo list with create, read, update and delete operations.
 
-# File Structure
+## File Structure
 
 ```
 .
@@ -26,4 +26,12 @@
         └── store.js
 ```
 
-## How do I make it: [A todo list with React + Redux](https://coding-ontheway.coderbridge.io/2022/04/12/react-redux-todolist-en/)
+## Technology
+
+* React
+
+* Redux
+
+* styled-component
+
+## The process of how I made it: [A todo list with React + Redux](https://coding-ontheway.coderbridge.io/2022/04/12/react-redux-todolist-en/)
