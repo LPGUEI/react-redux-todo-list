@@ -32,6 +32,6 @@ A todo list with create, read, update and delete operations.
 
 * Redux
 
-* styled-component
+* Styled-component
 
 ## The process of how I made it: [A todo list with React + Redux](https://coding-ontheway.coderbridge.io/2022/04/12/react-redux-todolist-en/)
