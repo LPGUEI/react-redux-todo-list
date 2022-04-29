@@ -2,6 +2,8 @@
 
 A todo list with create, read, update and delete operations.
 
+![](https://imgur.com/A3Hg1KN.gif)
+
 ## File Structure
 
 ```
@@ -26,7 +28,7 @@ A todo list with create, read, update and delete operations.
         └── store.js
 ```
 
-## Technology
+## Technologies
 
 * React
 
